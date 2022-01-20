@@ -17,7 +17,15 @@ public class DepartmentDAO {
 	public DepartmentDAO() {
 		dbConnector = new DBConnector();
 	}
-		
+	public List<DepartmentDTO> getone(int department_id) {
+		"SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID = ?";
+		//st.set데이터타입(int index, 값);
+		//index는 ?의 순서번호
+		//그러나 oracle은 1번부터 시작
+		st.setInt(1, department_id);
+	}
+	
+	
 	public List<DepartmentDTO> getList() throws Exception {
 		ArrayList<DepartmentDTO> a = new ArrayList();
 		
@@ -26,13 +34,17 @@ public class DepartmentDAO {
 		Connection con = dbConnector.getConnect();
 		
 		//2. SQL Query 문 작성
-		// java에서는 ; 제외
-		String sql = "SELECT * FROM DEPARTMENTS";
+		// java에서는 ; 제외							 방법 구식 인젝션 문제 보안에 취약
+		String sql = "SELECT * FROM DEPARTMENTS"+department_id;
 		
 		//3. 작성한 SQL Query 미리 전송
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		//4. ?값을 세팅, 없으면 통과, 나중에 해줌
+
+		
+		
+		
 		
 		//5. 최종 전송 후 결과 처리
 		ResultSet rs = st.executeQuery();
