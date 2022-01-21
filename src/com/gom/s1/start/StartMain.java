@@ -1,25 +1,17 @@
 package com.gom.s1.start;
 
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-import com.gom.s1.department.DepartmentDAO;
-import com.gom.s1.department.DepartmentDTO;
-import com.gom.s1.department.DepartmentView;
-import com.gom.s1.location.LocationDAO;
-import com.gom.s1.location.LocationDTO;
-import com.gom.s1.location.LocationView;
-import com.gom.s1.util.DBConnector;
+import com.gom.s1.comparison.DepartMentController;
+import com.gom.s1.department.DepartmentController;
 
 public class StartMain {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		System.out.println("DB 연동 테스트 시작");
 		Scanner sc = new Scanner(System.in);
-		
-		//location start
+
+		// location start
 //		LocationDAO lDAO = new LocationDAO();
 //		LocationView lView = new LocationView();
 //		List<LocationDTO> a;
@@ -30,11 +22,8 @@ public class StartMain {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		
-		
-		
-		
-		//department start
+
+		// department start
 //		DepartmentDAO ao = new DepartmentDAO();
 //		DepartmentView departmentView = new DepartmentView();
 //		DepartmentDTO dDTO = new DepartmentDTO();
@@ -46,9 +35,8 @@ public class StartMain {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}		
-		
-		
-		//department getone version
+
+		// department getone version
 //		DepartmentDAO ao = new DepartmentDAO();
 //		DepartmentView departmentView = new DepartmentView();
 //		DepartmentDTO dDTO = new DepartmentDTO();		
@@ -61,13 +49,21 @@ public class StartMain {
 //			e.printStackTrace();			
 //		}	
 //		System.out.println("DB 연동 테스트 끝");		
+
+		DepartmentController dc=null;
+		try {
+			dc = new DepartmentController();
+			dc.start();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		
-		FrontController fc= new FrontController();
-		fc.mainStart();
-		
-		
-		
+
+
+//		FrontController fc= new FrontController();
+//		fc.mainStart();
+
 	}
 
 }
