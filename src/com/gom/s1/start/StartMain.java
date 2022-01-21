@@ -49,10 +49,25 @@ public class StartMain {
 		
 		
 		//department getone version
+//		DepartmentDAO ao = new DepartmentDAO();
+//		DepartmentView departmentView = new DepartmentView();
+//		DepartmentDTO dDTO = new DepartmentDTO();		
+//		dDTO.setDepartment_id(20);
+//		try {
+//			dDTO = ao.getOne(dDTO);
+//			departmentView.view(dDTO);			
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();			
+//		}	
+//		System.out.println("DB 연동 테스트 끝");		
+		
+		
+		FrontController fc= new FrontController();
+		fc.mainStart();
 		
 		
 		
-		System.out.println("DB 연동 테스트 끝");		
 	}
 
 }
