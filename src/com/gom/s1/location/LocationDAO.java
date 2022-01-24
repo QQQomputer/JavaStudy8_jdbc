@@ -24,7 +24,6 @@ public class LocationDAO {
 		// 4. ? 세팅 통과
 		// 5. 최정 전송 후 결과 처리
 		// 6. 자원 해제
-
 		Connection con = dbc.getConnect();
 
 		String sql = "SELECT * FROM LOCATIONS";
@@ -48,4 +47,34 @@ public class LocationDAO {
 		con.close();
 		return a;
 	}
+
+	public LocationDTO getOne(LocationDTO lDTO) throws Exception {
+		LocationDTO locationDTO = null;
+
+		Connection con = dbc.getConnect();
+
+		String sql = "SELECT * FROM LOCATIONS WHERE LOCATION_ID = ?";
+
+		PreparedStatement st = con.prepareStatement(sql);
+
+		st.setInt(1, lDTO.getLocation_id());
+
+		ResultSet rs = st.executeQuery();
+
+		if (rs.next()) {
+			locationDTO = new LocationDTO();
+			locationDTO.setLocation_id(rs.getInt("LOCATION_ID"));
+			locationDTO.setStreet_address(rs.getString("STREET_ADDRESS"));
+			locationDTO.setPostal_code(rs.getString("POSTAL_CODE"));
+			locationDTO.setCity(rs.getString("City"));
+			locationDTO.setState_province(rs.getString("STATE_PROVINCE"));
+			locationDTO.setCountry_id(rs.getString("COUNTRY_ID"));
+		}
+		rs.close();
+		st.close();
+		con.close();
+		return locationDTO;
+
+	}
+
 }

@@ -10,14 +10,12 @@ public class DepartmentController {
 	private Scanner sc;
 
 	public DepartmentController() {
-
 		dDAO = new DepartmentDAO();
 		dView = new DepartmentView();
 		sc = new Scanner(System.in);
-
 	}
 
-	public void start() throws Exception {
+	public void dstart() throws Exception {
 		boolean flag = true;
 
 		while (flag) {
@@ -43,6 +41,8 @@ public class DepartmentController {
 			case 3:
 				System.out.println("3. 나가기를 선택하셨습니다.");
 				flag = false;
+			default:
+				System.out.println("잘못입력하셨습니다.");
 			}
 		}
 	}

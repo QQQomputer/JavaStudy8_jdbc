@@ -17,7 +17,33 @@ public class DepartmentDAO {
 	public DepartmentDAO() {
 		dbConnector = new DBConnector();
 	}
-
+	
+	public void getDEP_EMPList() throws Exception{
+		
+		Connection con = dbConnector.getConnect();
+		
+		String sql = "SELECT D.*, E.* "
+				+ "FROM DEPARTMENTS D "
+				+ "    INNER JOIN "
+				+ "    EMPLOYEES E    "
+				+ "    ON(D.DEPARTMENT_ID=E.DEPARTMENT_ID) ";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
 	public DepartmentDTO getOne(DepartmentDTO dep) throws Exception {
 		DepartmentDTO dDTO = null;
 		// 1. DB에 로그인
