@@ -13,22 +13,22 @@ public class StartMain {
 
 		FrontController fc = new FrontController();
 		try {
-			//fc.mainStart();
-			RegionDAO regionDAO = new RegionDAO();
-			RegionDTO regionDTO = new RegionDTO();
+			fc.mainStart();
+//			RegionDAO regionDAO = new RegionDAO();
+//			RegionDTO regionDTO = new RegionDTO();
+////			regionDTO.setRegion_id(6L);
+////			regionDTO.setRegion_name("South Pole");
 //			regionDTO.setRegion_id(6L);
-//			regionDTO.setRegion_name("South Pole");
-			regionDTO.setRegion_id(6L);
-			regionDTO.setRegion_name("South Pole");			
-			
-//			int result = regionDAO.setInsert(regionDTO);
-			int result = regionDAO.setDelete(regionDTO);
-			
-			if(result > 0) {
-				System.out.println("성공");
-			}else {
-				System.out.println("실패");
-			}
+//			regionDTO.setRegion_name("South Pole");			
+//			
+////			int result = regionDAO.setInsert(regionDTO);
+//			int result = regionDAO.setDelete(regionDTO);
+//			
+//			if(result > 0) {
+//				System.out.println("성공");
+//			}else {
+//				System.out.println("실패");
+//			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();

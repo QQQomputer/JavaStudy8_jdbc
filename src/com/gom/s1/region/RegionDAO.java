@@ -14,6 +14,69 @@ public class RegionDAO {
 		dbConnector = new DBConnector();
 	}
 	
+	
+	//INSERT, DELETE
+	public int insert(RegionDTO regionDTO) throws Exception{
+		
+		Connection con = dbConnector.getConnect();
+		
+		String sql = "INSERT INTO REGIONS (REGION_ID, REGION_NAME)"
+					+ "VALUES (REGIONS_SEQ.NEXTVAL, ?)";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, regionDTO.getRegion_name());
+		
+		int result = st.executeUpdate();
+		
+		st.close();
+		con.close();
+				
+		return result;							
+	}
+	
+	
+	public int delete(RegionDTO regionDTO) throws Exception{
+		
+		Connection con = dbConnector.getConnect();
+		
+		String sql = "DELETE REGIONS WHERE REGION_ID =REGIONS_SEQ.NEXTVAL";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, regionDTO.getRegion_name());
+		
+		int result = st.executeUpdate();
+		
+		st.close();
+		con.close();
+				
+		return result;							
+	}
+	
+	//대륙정보 수정 setUpdate
+	public int setUpdate(RegionDTO regionDTO) throws Exception{
+		
+		Connection con = dbConnector.getConnect();
+		
+		String sql = "UPDATE REGIONS SET REGION_NAME= ? WHERE REGION_ID = ?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, regionDTO.getRegion_name());
+		st.setLong(2, regionDTO.getRegion_id());
+		
+		int result = st.executeUpdate();
+		
+		st.close();
+		con.close();
+				
+		return result;							
+	}
+	
+	
+	
+	
 	//대륙정보 삭제 setDelete
 	public int setDelete(RegionDTO regionDTO) throws Exception {
 		
@@ -35,9 +98,6 @@ public class RegionDAO {
 	}
 	
 	
-	
-	
-	
 	//대륙정보 추가
 	public int setInsert(RegionDTO regionDTO) throws Exception {
 		//1. DB 연결
@@ -45,7 +105,7 @@ public class RegionDAO {
 		
 		//java는 기본으로 auto commit 임
 		//auto commit 해제
-		con.setAutoCommit(false);
+		//con.setAutoCommit(false);
 		
 		
 		//2. SQL Query문 생성
@@ -61,7 +121,7 @@ public class RegionDAO {
 		int result = st.executeUpdate();
 		
 		//auto commit 으로 재설정
-		con.setAutoCommit(true);
+		//con.setAutoCommit(true);
 		
 		//6. 자원 해제
 		st.close();

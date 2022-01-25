@@ -12,11 +12,6 @@ public class RegionDTO {
 	private long region_id;
 	private String region_name;
 	
-	public RegionDTO() {
-		region_id =0l;
-		region_name="";
-	}
-	
 	public long getRegion_id() {
 		return region_id;
 	}
