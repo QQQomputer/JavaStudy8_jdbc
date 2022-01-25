@@ -11,7 +11,7 @@ public class DepartmentDTO {
 	private Integer manager_id;
 	private Integer location_id;
 	//EmployeeDTO 멤버변수가 있어야함
-	private List<EmployeeDTO> employeeDTOs;
+	
 	
 	public Integer getDepartment_id() {
 		return department_id;

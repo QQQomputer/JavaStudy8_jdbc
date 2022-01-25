@@ -13,7 +13,7 @@ public class DepartmentDAO {
 	
 	public DepartmentDAO() {
 		dbConnector = new DBConnector();
-	}
+	}	
 	
 	//부서번호로 조회
 	public DepartmentDTO getOne(DepartmentDTO dep) throws Exception {
