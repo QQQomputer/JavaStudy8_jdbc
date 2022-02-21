@@ -38,7 +38,7 @@ public class EmployeeController {
 				EmployeeDTO eDTO = new EmployeeDTO();
 				eDTO.setEmployee_id(sc.nextInt());
 				eDTO = eDAO.getOne(eDTO);
-				eView.view(eDTO);
+				eView.view(eDTO); 
 				break;
 			case 3:
 				System.out.println("3. 나가기를 선택하셨습니다.");
